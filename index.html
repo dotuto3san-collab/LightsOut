@@ -314,7 +314,7 @@ canvas.addEventListener('touchmove', e => {
 }, {passive:false});
 canvas.addEventListener('touchend', e => { if(!isPinching && e.changedTouches.length === 1) handleInteraction(e.changedTouches[0].clientX, e.changedTouches[0].clientY); }, {passive:false});
 
-function checkWin() { if (board.cells.every(c => !c) || board.cells.every(c => c)) { isWin = true; stopAutoPlay(); document.getElementById('btnRetryLevel').style.display = 'block'; } }
+function checkWin() { if (board.cells.every(c => c)) { isWin = true; stopAutoPlay(); document.getElementById('btnRetryLevel').style.display = 'block'; } }
 function toggleAutoPlay() { if (isAutoPlaying) stopAutoPlay(); else { if(autoEntries.length===0) return; isAutoPlaying=true; updateUIText(); processNextAuto(); } }
 function stopAutoPlay() { isAutoPlaying=false; autoIndex=-1; clearTimeout(autoTimer); updateUIText(); renderInspector(); }
 function processNextAuto() {
